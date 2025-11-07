@@ -28,7 +28,7 @@ build/
 # Docker
 Dockerfile
 .dockerignore
-nginx.conf
+# Note: nginx.conf is needed for the build, so don't exclude it
 
 # Testing
 coverage/
