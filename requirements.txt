@@ -1,0 +1,15 @@
+langgraph
+langchain
+openai>=1.0.0
+python-dotenv
+pydantic>=2.0.0
+sendgrid
+fpdf2
+APScheduler
+fastapi
+uvicorn
+pymysql
+psycopg2-binary
+matplotlib
+requests
+pymongo
