@@ -5,6 +5,9 @@ WORKDIR /app
 
 # Build arguments
 ARG VITE_API_BASE_URL=http://localhost:8017
+ARG VITE_SUPABASE_URL
+ARG VITE_SUPABASE_ANON_KEY
+ARG VITE_APP_URL=http://localhost:8018
 
 # Copy package files
 COPY package*.json ./
@@ -14,7 +17,10 @@ RUN npm ci
 COPY . .
 
 # Create .env file with build-time variables
-RUN echo "VITE_API_BASE_URL=${VITE_API_BASE_URL}" > .env
+RUN echo "VITE_API_BASE_URL=${VITE_API_BASE_URL}" > .env && \
+    echo "VITE_SUPABASE_URL=${VITE_SUPABASE_URL}" >> .env && \
+    echo "VITE_SUPABASE_ANON_KEY=${VITE_SUPABASE_ANON_KEY}" >> .env && \
+    echo "VITE_APP_URL=${VITE_APP_URL}" >> .env
 
 # Build the application
 RUN npm run build
